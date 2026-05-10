@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 AI/SW Career Roadmap</title>
-    <!-- Google Fonts -->
+    <title>2026 AI/SW My Career Path</title>
+    <!-- Google Fonts: Pretendard 사용 -->
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050505;
-            --card-bg: #111111;
-            --primary-navy: #0a192f;
-            --point-green: #39ff14;
-            --point-blue: #00f3ff;
-            --text-main: #ffffff;
-            --text-sub: #b0b0b0;
+            --bg-color: #ffffff;
+            --section-bg: #fff5f7;
+            --primary-pink: #ff85a1;
+            --dark-pink: #ff4d6d;
+            --light-pink: #ffccd5;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --radius: 30px;
         }
 
         * {
@@ -27,7 +29,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
@@ -38,18 +40,21 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 77, 109, 0.1);
+            padding: 0.8rem 2rem;
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,14 +62,15 @@
 
         .logo {
             font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--point-green);
-            text-transform: uppercase;
+            font-size: 1.2rem;
+            background: linear-gradient(to right, var(--primary-pink), var(--dark-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-links a {
@@ -76,166 +82,186 @@
         }
 
         .nav-links a:hover {
-            color: var(--point-blue);
+            color: var(--dark-pink);
         }
 
         /* Hero Section */
-        header {
-            height: 60vh;
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background: radial-gradient(circle at top right, #fff0f3, #ffffff);
             padding: 2rem;
-            background: radial-gradient(circle at center, var(--primary-navy) 0%, var(--bg-color) 70%);
         }
 
-        header h1 {
+        .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--point-green), var(--point-blue));
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(120deg, var(--primary-pink), var(--dark-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
+        .hero p {
             font-size: 1.2rem;
             color: var(--text-sub);
+            max-width: 600px;
         }
 
         section {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 8rem 2rem;
+            padding: 100px 2rem;
         }
 
-        h2 {
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            border-left: 5px solid var(--point-green);
-            padding-left: 1rem;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Jobs Cards */
-        .grid-container {
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: var(--light-pink);
+            z-index: -1;
+            border-radius: 10px;
+            opacity: 0.5;
+        }
+
+        /* 1. Jobs Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .job-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #222;
-            transition: transform 0.3s, border-color 0.3s;
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
         }
 
-        .job-card:hover {
+        .card:hover {
             transform: translateY(-10px);
-            border-color: var(--point-blue);
+            border-color: var(--primary-pink);
+            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.1);
         }
 
-        .job-card h3 {
-            color: var(--point-blue);
+        .card h3 {
+            color: var(--dark-pink);
             margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
 
-        .job-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .job-card li {
-            font-size: 0.9rem;
+        .card p {
+            font-size: 0.95rem;
             color: var(--text-sub);
-            margin-bottom: 0.5rem;
         }
 
-        /* Competencies */
-        .comp-container {
-            display: flex;
-            flex-direction: column;
+        /* 2. Competencies */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1.5rem;
         }
 
-        .comp-item {
-            background: linear-gradient(90deg, var(--card-bg) 0%, transparent 100%);
-            padding: 1.5rem;
-            border-left: 3px solid var(--point-blue);
+        .skill-item {
+            background: linear-gradient(135deg, #fff, var(--section-bg));
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
         }
 
-        .comp-item strong {
-            color: var(--point-green);
+        .skill-item strong {
             display: block;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-pink);
         }
 
-        /* Timeline */
+        /* 3. Timeline */
         .timeline {
             position: relative;
-            padding: 2rem 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            width: 2px;
+            left: 31px;
+            width: 4px;
             height: 100%;
-            background: #222;
-            transform: translateX(-50%);
+            background: var(--light-pink);
+            border-radius: 10px;
         }
 
         .timeline-item {
+            position: relative;
+            padding-left: 80px;
             margin-bottom: 4rem;
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .timeline-content {
-            width: 45%;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
         }
 
         .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: var(--point-green);
-            border-radius: 50%;
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 15px var(--point-green);
+            left: 20px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border: 5px solid var(--dark-pink);
+            border-radius: 50%;
+            z-index: 2;
         }
 
-        .year-tag {
-            color: var(--point-green);
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .year-label {
+            display: inline-block;
+            background: var(--primary-pink);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            display: block;
+            margin-bottom: 1rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .timeline::before { left: 20px; }
-            .timeline-dot { left: 20px; }
-            .timeline-content { width: 85%; margin-left: 40px; }
-            .timeline-item, .timeline-item:nth-child(even) { flex-direction: row; }
+            .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .skills-container { grid-template-columns: 1fr; }
+            .timeline-item { padding-left: 60px; }
+            .timeline::before { left: 11px; }
+            .timeline-dot { left: 0; }
         }
     </style>
 </head>
@@ -243,120 +269,106 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">AI Port</div>
+            <div class="logo">AI PORTFOLIO</div>
             <div class="nav-links">
-                <a href="#jobs">미래 유망 직무</a>
-                <a href="#competencies">핵심 필수 역량</a>
+                <a href="#jobs">미래 직무</a>
+                <a href="#skills">핵심 역량</a>
                 <a href="#roadmap">4년 로드맵</a>
             </div>
         </div>
     </nav>
 
-    <header>
-        <p>2026 IT Blue Ocean Strategy</p>
-        <h1>나만의 AI/SW 진로 분석</h1>
-        <p>대체 불가능한 엔지니어로 성장하기 위한 기록</p>
+    <header class="hero">
+        <p>Gartner 2026 Tech Trends Based</p>
+        <h1>대체 불가능한<br><span>SW 엔지니어</span>의 기록</h1>
+        <p>AI가 설계하고 배포하는 시대, 단순 코딩을 넘어 시스템을 조율하는 오케스트레이터로 성장합니다.</p>
     </header>
 
     <!-- 메뉴 1: 미래 유망 직무 -->
     <section id="jobs">
-        <h2>미래 유망 직무</h2>
-        <div class="grid-container">
-            <div class="job-card">
-                <h3>AI FDE (AX 매니저)</h3>
-                <p>AI 네이티브 개발 플랫폼 트렌드를 현장에 이식하는 핵심 직군입니다.</p>
-                <ul>
-                    <li>✔ Claude Code, Cursor 등 에이전트 활용</li>
-                    <li>✔ PO 관점의 문제 정의 및 솔루션 구현</li>
-                </ul>
+        <div class="section-title">
+            <h2>미래 유망 직무</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>AI FDE / AX 매니저</h3>
+                <p>AI 네이티브 개발 플랫폼 트렌드를 이식하며, Claude Code와 Cursor 등을 활용해 소규모·민첩한 팀의 생산성을 극대화합니다 [1, 2].</p>
             </div>
-            <div class="job-card">
+            <div class="card">
                 <h3>AI 에이전트 아키텍트</h3>
-                <p>다중 에이전트 시스템(MAS)과 DSLM 트렌드를 자동화로 연결합니다.</p>
-                <ul>
-                    <li>✔ LangGraph, LangChain 설계 및 운영</li>
-                    <li>✔ 에이전트 간 통신 및 성능 최적화</li>
-                </ul>
+                <p>다중 에이전트 시스템(MAS)과 도메인 특화 모델(DSLM)을 연결하여 복잡한 비즈니스 자동화 워크플로우를 설계합니다 [3, 4].</p>
             </div>
-            <div class="job-card">
+            <div class="card">
                 <h3>AI 데이터 & 신뢰 전문가</h3>
-                <p>디지털 출처 증명 및 데이터 무결성을 관리하는 전문가입니다.</p>
-                <ul>
-                    <li>✔ 고품질 학습 데이터셋 구축 및 검증</li>
-                    <li>✔ 디지털 신뢰(Digital Trust) 확보</li>
-                </ul>
+                <p>디지털 출처 증명과 데이터 무결성 관리를 통해 딥페이크 및 저작권 리스크로부터 기업의 디지털 신뢰를 확보합니다 [5, 6].</p>
             </div>
         </div>
     </section>
 
     <!-- 메뉴 2: 핵심 필수 역량 -->
-    <section id="competencies">
-        <h2>핵심 필수 역량</h2>
-        <div class="comp-container">
-            <div class="comp-item">
-                <strong>01. 기초를 무시하지 마라</strong>
-                AI가 코드를 짤수록 '왜' 그렇게 작동하는지 아는 원리 이해 능력이 핵심입니다. [1]
+    <section id="skills">
+        <div class="section-title">
+            <h2>핵심 필수 역량</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-item">
+                <strong>01. 기초의 가치</strong>
+                <p>AI가 짠 코드가 '왜' 그렇게 작동하는지 이해하는 CS 기초 원리 역량 [7].</p>
             </div>
-            <div class="comp-item">
-                <strong>02. 오케스트레이터가 되어라</strong>
-                단일 개발을 넘어 여러 AI 에이전트와 시스템을 조율하는 설계 능력이 필요합니다. [1], [2]
+            <div class="skill-item">
+                <strong>02. 오케스트레이션</strong>
+                <p>단일 기능을 넘어 여러 AI 에이전트와 시스템을 조율하는 설계 능력 [7].</p>
             </div>
-            <div class="comp-item">
-                <strong>03. 신뢰를 설계하라</strong>
-                보안과 윤리 가이드를 통제하고 데이터 무결성을 검증하는 능력이 가치를 결정합니다. [1], 
+            <div class="skill-item">
+                <strong>03. 신뢰 설계</strong>
+                <p>보안과 윤리 가이드를 통제하여 기업의 투자 리스크를 방어하는 능력 [7].</p>
             </div>
         </div>
     </section>
 
     <!-- 메뉴 3: 나의 4년 로드맵 -->
     <section id="roadmap">
-        <h2>나의 4년 로드맵</h2>
+        <div class="section-title">
+            <h2>나의 4년 로드맵</h2>
+        </div>
         <div class="timeline">
-            <!-- 1학년 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="year-tag">1학년: The Foundation</span>
-                    <p>CS 기초(자료구조, 알고리즘)와 수학적 사고력을 다지며 AI 없이 스스로 코딩하는 체력을 기릅니다. [3]</p>
+                    <span class="year-label">1학년: The Foundation</span>
+                    <p>AI 없이 스스로 코딩하는 체력을 기르며 알고리즘과 CS 기초, 도메인 지식을 쌓습니다 [8].</p>
                 </div>
             </div>
-            <!-- 2학년 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="year-tag">2학년: AI-Native Builder</span>
-                    <p>Cursor 등 코딩 에이전트로 생산성을 극대화하고, 백엔드 기초와 API 서빙 역량을 구축합니다. [4]</p>
+                    <span class="year-label">2학년: AI-Native Builder</span>
+                    <p>코딩 에이전트를 도입해 생산성을 55% 이상 높이고 백엔드 시스템 구축 역량을 확보합니다 [9].</p>
                 </div>
             </div>
-            <!-- 3학년 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="year-tag">3학년: The Orchestrator</span>
-                    <p>LangGraph 등을 활용해 멀티 에이전트 시스템을 설계하고 산업 특화 솔루션을 구현합니다. [5]</p>
+                    <span class="year-label">3학년: The Orchestrator</span>
+                    <p>다중 에이전트 시스템(MAS)과 RAG를 학습하여 산업 특화 지능형 솔루션을 설계합니다 [10].</p>
                 </div>
             </div>
-            <!-- 4학년 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="year-tag">4학년: The Vanguard</span>
-                    <p>AI 보안(TRiSM), MLOps, 비용 최적화를 포함한 신뢰 기반의 기업형 전문가로 거듭납니다. [6]</p>
+                    <span class="year-label">4학년: The Vanguard</span>
+                    <p>AI 보안(TRiSM), MLOps, 비용 최적화를 아우르는 기업형 신뢰 기반 전문가가 됩니다 [11].</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 4rem; color: #444; border-top: 1px solid #222;">
-        <p>&copy; 2026 AI/SW Portfolio. Inspired by Gartner Tech Trends.</p>
+    <footer style="text-align: center; padding: 5rem; color: var(--text-sub); background: var(--section-bg);">
+        <p>© 2026 AI Career Portfolio. All rights reserved.</p>
     </footer>
 
     <script>
-        // 간단한 스크롤 애니메이션 효과 (옵션)
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // 스크롤 시 부드러운 애니메이션 효과
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -364,13 +376,13 @@
                     entry.target.style.transform = "translateY(0)";
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = "0";
-            section.style.transform = "translateY(20px)";
-            section.style.transition = "all 0.6s ease-out";
-            observer.observe(section);
+        document.querySelectorAll('section, .card, .skill-item').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.8s ease-out";
+            observer.observe(el);
         });
     </script>
 </body>
